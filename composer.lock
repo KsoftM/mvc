@@ -1,0 +1,102 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "4e47849b3150e2fb22262ebf53c89ace",
+    "packages": [
+        {
+            "name": "ksoftm/mini-db",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KsoftM/MiniDB.git",
+                "reference": "064ec0103d66fbe2b18c6977678b900fdb26e92a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KsoftM/MiniDB/zipball/064ec0103d66fbe2b18c6977678b900fdb26e92a",
+                "reference": "064ec0103d66fbe2b18c6977678b900fdb26e92a",
+                "shasum": ""
+            },
+            "require": {
+                "ksoftm/utility": "^0.1.5",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ksoftm\\system\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KsoftM",
+                    "email": "ksoftmanagement@gmail.com"
+                }
+            ],
+            "description": "Mini database connector.",
+            "support": {
+                "issues": "https://github.com/KsoftM/MiniDB/issues",
+                "source": "https://github.com/KsoftM/MiniDB/tree/v0.1.1-stable"
+            },
+            "time": "2021-09-27T13:37:10+00:00"
+        },
+        {
+            "name": "ksoftm/utility",
+            "version": "0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KsoftM/Utility.git",
+                "reference": "bcb0086107285f52da43bd501e5621e7f9731de2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/bcb0086107285f52da43bd501e5621e7f9731de2",
+                "reference": "bcb0086107285f52da43bd501e5621e7f9731de2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ksoftm\\system\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KsoftM",
+                    "email": "ksoftmanagement@gmail.com"
+                }
+            ],
+            "description": "Some utility helpers for PHP.",
+            "support": {
+                "issues": "https://github.com/KsoftM/Utility/issues",
+                "source": "https://github.com/KsoftM/Utility/tree/v0.1.5-stable"
+            },
+            "time": "2021-09-27T13:30:18+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^8.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}

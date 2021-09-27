@@ -1,0 +1,24 @@
+{
+    "name": "ksoftm/mvc",
+    "description": "Basic mvc implementation.",
+    "type": "library",
+    "require": {
+        "php": "^8.0",
+        "ksoftm/utility": "^0.1.5",
+        "ksoftm/mini-db": "^0.1.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ksoftm\\system\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "KsoftM",
+            "email": "ksoftmanagement@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "version": "0.0.3"
+}
