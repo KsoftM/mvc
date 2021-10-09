@@ -4,8 +4,9 @@
     "type": "library",
     "require": {
         "php": "^8.0",
-        "ksoftm/utility": "^0.1.5",
-        "ksoftm/mini-db": "^0.1.1"
+        "ksoftm/utility": "0.1.7",
+        "ksoftm/mini-data": "0.1.2",
+        "ksoftm/routing-system": "0.1.7"
     },
     "license": "MIT",
     "autoload": {
@@ -19,6 +20,6 @@
             "email": "ksoftmanagement@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "version": "0.0.3"
+    "minimum-stability": "stable",
+    "version": "0.0.5"
 }

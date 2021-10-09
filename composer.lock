@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e47849b3150e2fb22262ebf53c89ace",
+    "content-hash": "a092b0e31ae2259c67102d69a58124c8",
     "packages": [
         {
-            "name": "ksoftm/mini-db",
-            "version": "0.1.1",
+            "name": "ksoftm/mini-data",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/KsoftM/MiniDB.git",
-                "reference": "064ec0103d66fbe2b18c6977678b900fdb26e92a"
+                "url": "https://github.com/KsoftM/MiniData.git",
+                "reference": "0ac36a01d69fffaa8a8c84745834cc59a3a6e6e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/MiniDB/zipball/064ec0103d66fbe2b18c6977678b900fdb26e92a",
-                "reference": "064ec0103d66fbe2b18c6977678b900fdb26e92a",
+                "url": "https://api.github.com/repos/KsoftM/MiniData/zipball/0ac36a01d69fffaa8a8c84745834cc59a3a6e6e8",
+                "reference": "0ac36a01d69fffaa8a8c84745834cc59a3a6e6e8",
                 "shasum": ""
             },
             "require": {
-                "ksoftm/utility": "^0.1.5",
+                "ksoftm/utility": "0.1.7",
                 "php": "^8.0"
             },
             "type": "library",
@@ -40,25 +40,66 @@
                     "email": "ksoftmanagement@gmail.com"
                 }
             ],
-            "description": "Mini database connector.",
+            "description": "content database easily",
             "support": {
-                "issues": "https://github.com/KsoftM/MiniDB/issues",
-                "source": "https://github.com/KsoftM/MiniDB/tree/v0.1.1-stable"
+                "issues": "https://github.com/KsoftM/MiniData/issues",
+                "source": "https://github.com/KsoftM/MiniData/tree/v0.1.2"
             },
-            "time": "2021-09-27T13:37:10+00:00"
+            "time": "2021-10-09T07:07:47+00:00"
         },
         {
-            "name": "ksoftm/utility",
-            "version": "0.1.5",
+            "name": "ksoftm/routing-system",
+            "version": "0.1.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/KsoftM/Utility.git",
-                "reference": "bcb0086107285f52da43bd501e5621e7f9731de2"
+                "url": "https://github.com/KsoftM/RoutingSystem.git",
+                "reference": "7bc81bbcb4fd34d7ef6a6e3443d5b14a4069a38e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/bcb0086107285f52da43bd501e5621e7f9731de2",
-                "reference": "bcb0086107285f52da43bd501e5621e7f9731de2",
+                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/7bc81bbcb4fd34d7ef6a6e3443d5b14a4069a38e",
+                "reference": "7bc81bbcb4fd34d7ef6a6e3443d5b14a4069a38e",
+                "shasum": ""
+            },
+            "require": {
+                "ksoftm/utility": "^0.1.7",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ksoftm\\system\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KsoftM",
+                    "email": "ksoftmanagement@gmail.com"
+                }
+            ],
+            "description": "Routing system for PHP projects.",
+            "support": {
+                "issues": "https://github.com/KsoftM/RoutingSystem/issues",
+                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.7"
+            },
+            "time": "2021-10-09T13:18:21+00:00"
+        },
+        {
+            "name": "ksoftm/utility",
+            "version": "0.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/KsoftM/Utility.git",
+                "reference": "e546b5cd0d1fb4cc0b32377077732c4d8794147a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/e546b5cd0d1fb4cc0b32377077732c4d8794147a",
+                "reference": "e546b5cd0d1fb4cc0b32377077732c4d8794147a",
                 "shasum": ""
             },
             "require": {
@@ -83,14 +124,14 @@
             "description": "Some utility helpers for PHP.",
             "support": {
                 "issues": "https://github.com/KsoftM/Utility/issues",
-                "source": "https://github.com/KsoftM/Utility/tree/v0.1.5-stable"
+                "source": "https://github.com/KsoftM/Utility/tree/v0.1.7-stable"
             },
-            "time": "2021-09-27T13:30:18+00:00"
+            "time": "2021-09-30T19:30:29+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
