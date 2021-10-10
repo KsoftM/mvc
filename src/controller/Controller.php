@@ -3,8 +3,6 @@
 namespace ksoftm\system\controller;
 
 use ReflectionClass;
-use ksoftm\system\DB;
-use ReflectionMethod;
 use ksoftm\system\model\Model;
 use ksoftm\system\kernel\Route;
 use ksoftm\system\utils\html\BuildMixer;

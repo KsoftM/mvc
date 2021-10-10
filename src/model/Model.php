@@ -2,7 +2,6 @@
 
 namespace ksoftm\system\model;
 
-use Exception;
 use ksoftm\system\DB;
 use ksoftm\system\database\Query;
 use ksoftm\system\internal\DResult;
@@ -12,8 +11,8 @@ use ksoftm\system\utils\validator\MegRule;
 
 abstract class Model
 {
-    /** @var ListData $args arguments datas. */
-    public Dictionary $args;
+    /** @var ListData $args arguments data. */
+    private Dictionary $args;
 
 
 
@@ -275,6 +274,7 @@ abstract class Model
 
         return false;
     }
+
     public function delete(): DResult|false
     {
         $set = [];
