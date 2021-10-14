@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "183561f594d9a3dc1c3a038b2202974d",
+    "content-hash": "503e87369e235fe78ea4e087e5ac1427",
     "packages": [
         {
             "name": "ksoftm/mini-data",
