@@ -6,24 +6,15 @@ use ReflectionClass;
 use ksoftm\system\model\Model;
 use ksoftm\system\kernel\Route;
 use ksoftm\system\utils\html\BuildMixer;
+use ksoftm\system\utils\View;
 
 class Controller
 {
-    private static ?string $resourcesPath = null;
-    private static array $landDirectory = [];
-
     /**
      * Class constructor.
      */
     public function __construct()
     {
-    }
-
-    // TODO controller must be configure
-    public static function config(string $resourcesPath, array $landDirectory): void
-    {
-        self::$resourcesPath = $resourcesPath;
-        self::$landDirectory = $landDirectory;
     }
 
     /**
@@ -65,11 +56,7 @@ class Controller
 
     public function view(string $path, array $data = []): bool
     {
-        return BuildMixer::build(
-            self::$resourcesPath,
-            self::$resourcesPath . "/$path",
-            self::$landDirectory,
-            $data,
-        );
+        $p = new View();
+        $p->view($path, $data);
     }
 }
