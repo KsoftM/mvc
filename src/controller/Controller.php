@@ -54,7 +54,7 @@ class Controller
         return false;
     }
 
-    public function view(string $path, array $data = []): bool
+    public function view(string $path, array $data = []): void
     {
         $p = new View();
         $p->view($path, $data);
