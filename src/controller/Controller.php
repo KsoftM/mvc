@@ -65,14 +65,11 @@ class Controller
 
     public function view(string $path, array $data = []): bool
     {
-        // get the rout path
-        BuildMixer::build(
+        return BuildMixer::build(
             self::$resourcesPath,
             self::$resourcesPath . "/$path",
             self::$landDirectory,
             $data,
         );
-
-        return false;
     }
 }

@@ -12,7 +12,7 @@ use ksoftm\system\utils\validator\MegRule;
 abstract class Model
 {
     /** @var ListData $args arguments data. */
-    private Dictionary $args;
+    protected Dictionary $args;
 
 
 
