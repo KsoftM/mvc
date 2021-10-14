@@ -90,7 +90,6 @@ abstract class Model
 
     public abstract function rules(): array;
 
-
     protected function validate(): array
     {
         $rules = [];
