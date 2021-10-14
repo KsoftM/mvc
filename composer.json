@@ -6,7 +6,7 @@
         "php": "^8.0",
         "ksoftm/utility": "^0.1.12",
         "ksoftm/mini-data": "^0.1.5",
-        "ksoftm/routing-system": "^0.1.10"
+        "ksoftm/routing-system": "^0.1.11"
     },
     "license": "MIT",
     "autoload": {
