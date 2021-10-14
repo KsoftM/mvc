@@ -54,9 +54,13 @@ class Controller
         return false;
     }
 
-    public function view(string $path, array $data = []): void
+    public function view(string $path, array $data = []): string
     {
+        if (ob_get_length() != false) {
+            ob_clean();
+        }
+
         $p = new View();
-        $p->view($path, $data);
+        return $p->view($path, $data);
     }
 }
