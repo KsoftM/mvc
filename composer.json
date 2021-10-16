@@ -4,9 +4,9 @@
     "type": "library",
     "require": {
         "php": "^8.0",
-        "ksoftm/utility": "^0.1.17",
-        "ksoftm/mini-data": "^0.1.17",
-        "ksoftm/routing-system": "^0.1.17"
+        "ksoftm/utility": "^0.1.18",
+        "ksoftm/mini-data": "^0.1.18",
+        "ksoftm/routing-system": "^0.1.18"
     },
     "license": "MIT",
     "autoload": {
@@ -23,20 +23,6 @@
             "email": "ksoftmanagement@gmail.com"
         }
     ],
-    "repositories":[
-        {
-            "type": "path",
-            "url": "./../RoutingSystem"
-        },
-        {
-            "type": "path",
-            "url": "./../MiniData"
-        },
-        {
-            "type": "path",
-            "url": "./../Utility"
-        }
-    ],
     "minimum-stability": "dev",
-    "version": "0.1.17"
+    "version": "0.1.18"
 }

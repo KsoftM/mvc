@@ -4,18 +4,18 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25e48f6b0f834fe5e5b967449755e23b",
+    "content-hash": "9fb19f7296d6472f4f7849d3cafb7223",
     "packages": [
         {
             "name": "ksoftm/mini-data",
-            "version": "0.1.17",
+            "version": "0.1.18",
             "dist": {
                 "type": "path",
                 "url": "./../MiniData",
-                "reference": "0f91f719212334d770f48e32f5595b7e5802b6e8"
+                "reference": "b5fd0bb8cfe60e00dc3d3c362196a29b98553c8c"
             },
             "require": {
-                "ksoftm/utility": "^0.1.17",
+                "ksoftm/utility": "^0.1.18",
                 "php": "^8.0"
             },
             "type": "library",
@@ -40,14 +40,14 @@
         },
         {
             "name": "ksoftm/routing-system",
-            "version": "0.1.17",
+            "version": "0.1.18",
             "dist": {
                 "type": "path",
                 "url": "./../RoutingSystem",
-                "reference": "56f22b70aa86b1c3d249dfdc55e91700e6933d8a"
+                "reference": "e07270ef4df247056a13d772a5b849b5b45e7878"
             },
             "require": {
-                "ksoftm/utility": "^0.1.17",
+                "ksoftm/utility": "^0.1.18",
                 "php": "^8.0"
             },
             "type": "library",
@@ -75,11 +75,11 @@
         },
         {
             "name": "ksoftm/utility",
-            "version": "0.1.17",
+            "version": "0.1.18",
             "dist": {
                 "type": "path",
                 "url": "./../Utility",
-                "reference": "9863a18da8d1a174a96369054a17475fffe977d2"
+                "reference": "b3ef08717f0b6ad3390019887f367e63f74d9a42"
             },
             "require": {
                 "php": "^8.0"
