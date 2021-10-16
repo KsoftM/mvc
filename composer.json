@@ -4,9 +4,9 @@
     "type": "library",
     "require": {
         "php": "^8.0",
-        "ksoftm/utility": "^0.1.16",
-        "ksoftm/mini-data": "^0.1.16",
-        "ksoftm/routing-system": "^0.1.16"
+        "ksoftm/utility": "^0.1.17",
+        "ksoftm/mini-data": "^0.1.17",
+        "ksoftm/routing-system": "^0.1.17"
     },
     "license": "MIT",
     "autoload": {
@@ -38,5 +38,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "version": "0.1.16"
+    "version": "0.1.17"
 }
