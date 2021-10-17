@@ -61,6 +61,23 @@ abstract class Model
         $this->args = new Dictionary();
     }
 
+    public function viewableFields(): array|false
+    {
+        $res = array_merge($this->graded ?: $this->fillable, $this->hidden);
+        foreach ($res as $key => $value) {
+            if (in_array($value, $this->hidden)) {
+                unset($res[$key]);
+            }
+        }
+        ksort($res);
+        return $res;
+    }
+
+    public function toArray(): array|false
+    {
+        return $this->args ?: false;
+    }
+
     /**
      * public getter
      *
@@ -90,19 +107,25 @@ abstract class Model
 
     public abstract function rules(): array;
 
-    protected function validate(): array
+    public function validate(): array
     {
         $rules = [];
 
         $this->fillable = [];
 
-        array_map(function (MegRule $val) use (&$rules) {
-            // assign the fillable field with name
-            $field = $this->fillable[] = $val->getField(false);;
+        foreach ($this->rules() as $value) {
+            if ($value instanceof MegRule) {
+                // assign the fillable field with name
+                $field = $value->getField(false);
 
-            // generate the rules for tha field and values
-            $rules[] = [$this->args->getValue($field), $val];
-        }, $this->rules());
+                if ($field != false) {
+                    $this->fillable[] = $field;
+                }
+
+                // generate the rules for tha field and values
+                $rules[] = [$this->args->getValue($field), $value];
+            }
+        }
 
         // validate the rules and return the result and can get the processed error messages
         $validate = MegaValid::validate($rules, $errors);
@@ -123,25 +146,33 @@ abstract class Model
     /**
      * find and load data using primary key or unique key you specified
      *
-     * @param array $data
+     * @param string|int $data
      *
      * @return boolean
      */
-    public function findAndLoad(array $data): bool
+    public function findAndLoad(string|int $data): bool
     {
-        /**
-         * @var DResult
-         */
         $result = $this->findByPrimaryKey($data);
 
-        if ($result == false) {
-            /**
-             * @var DResult
-             */
-            $result = $this->findByUniqueKeys($data);
+        foreach ($result as $value) {
+            if ($value instanceof DResult) {
+                $result = $value;
+                break;
+            }
         }
 
-        if ($result instanceof DResult && $result->rowCount() === 1) {
+        if (($result instanceof DResult) === false) {
+            $result = $this->findByUniqueKeys($data);
+
+            foreach ($result as $value) {
+                if ($value instanceof DResult) {
+                    $result = $value;
+                    break;
+                }
+            }
+        }
+
+        if ($result instanceof DResult) {
             return $this->loadData($result);
         } else {
             return false;
@@ -151,27 +182,39 @@ abstract class Model
     /**
      * find data by primary keys and load if needed
      *
-     * @param string $id
-     * @param string $column
+     * @param string|int $data
      *
-     * @return void
+     * @return array|false
      */
-    protected function findByPrimaryKey(array $keys): DResult|false
+    protected function findByPrimaryKey(string|int $data): array|false
     {
-        return $this->find($this->primaryKeys, $keys);
+        foreach ($this->primaryKeys ?: [] as $key) {
+            $res = $this->find([$key => $data]);
+            if ($res instanceof DResult) {
+                return $res;
+            }
+        }
+
+        return false;
     }
 
     /**
      * find data by unique keys and load if needed
      *
-     * @param string $id
-     * @param string $column
+     * @param string|int $data
      *
-     * @return void
+     * @return array|false
      */
-    protected function findByUniqueKeys(array $keys): DResult|false
+    protected function findByUniqueKeys(string|int $data): array|false
     {
-        return $this->find($this->uniqueKeys, $keys);
+        foreach ($this->uniqueKeys ?: [] as $key) {
+            $res = $this->find([$key => $data]);
+            if ($res instanceof DResult) {
+                return $res;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -183,7 +226,7 @@ abstract class Model
      */
     protected function loadData(DResult $result): bool
     {
-        if ($result->rowCount() == 1) {
+        if ($result->rowCount() === 1) {
             foreach ($result->getData()[0] as $key => $value) {
                 $this->$key = $value;
             }
@@ -193,17 +236,28 @@ abstract class Model
         }
     }
 
-    private function find(array $fields, array $data): DResult|false
+    /**
+     * find the model using associative array
+     *
+     * @param array $data
+     *
+     * @return array|false
+     */
+    private function find(array $data): array|false
     {
         if (!empty($fields) && !empty($data)) {
-            $result = DB::select(
-                $this->tableName(),
-                fn (Query $q) => $q->where(
-                    $this->conditionField($fields),
-                    $data
-                )
-            );
-            return $result;
+            $result = [];
+            foreach ($data ?: [] as $key => $value) {
+                $result[] = DB::select(
+                    $this->tableName(),
+                    fn (Query $q) => $q
+                        ->where(
+                            $this->conditionField([$key]),
+                            $value
+                        )
+                );
+            }
+            return $result ?: false;
         }
         return false;
     }
@@ -233,9 +287,54 @@ abstract class Model
         return $data;
     }
 
+    public function keyCheck(): bool
+    {
+        $primaryKeys = [];
+        $uniqueKeys = [];
+
+        array_map(function (string $key) use (&$set) {
+            $set[$key] = $this->args->getValue($key);
+        }, $this->primaryKeys);
+
+        array_map(function (string $key) use (&$set) {
+            $set[$key] = $this->args->getValue($key);
+        }, $this->uniqueKeys);
+
+        if (!empty($primaryKeys) && !empty($uniqueKeys)) {
+            if ($this->isValidKey($primaryKeys) && $this->isValidKey($uniqueKeys)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private function isValidKey(array $keys): bool
+    {
+        foreach ($keys as $value) {
+            $res = DB::select(
+                $this->tableName(),
+                fn (Query $q) => $q->where(
+                    $this->conditionField($value),
+                    $this->conditionData($value)
+                )
+            );
+
+
+            if ($res instanceof DResult && $res->rowCount() > 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function insert(): DResult|false
     {
         $set = [];
+
+        if ($this->keyCheck() == false) {
+            return false;
+        }
 
         array_map(function (string $key) use (&$set) {
             $set[$key] = $this->args->getValue($key);
@@ -298,11 +397,13 @@ abstract class Model
         return false;
     }
 
-    public function first(int $count = 1, int $offset = 0): DResult|false
+    public function first(int $count = 0, int $offset = 0): DResult|false
     {
         return DB::select(
             $this->tableName(),
-            fn (Query $q) => $q->limit($count, $offset)
+            $count > 0
+                ? fn (Query $q) => $q->field($this->viewableFields())->limit($count, $offset)
+                : fn (Query $q) => $q->field($this->viewableFields())
         );
     }
 

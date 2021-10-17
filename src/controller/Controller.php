@@ -36,15 +36,14 @@ class Controller
         $c = $c->getName();
         $model = new $c();
         if ($model instanceof Model) {
-            $id = $model->getPrimaryKey();
-            if (!empty($id)) {
+            $idName = $model->getPrimaryKey();
+            if (!empty($idName)) {
                 $data = Route::resolve()->getUserPathData();
 
-                if (is_array($data) && array_key_exists($id, $data)) {
-                    $data = $data[$id];
+                if (is_array($data) && array_key_exists($idName, $data)) {
+                    $data = $data[$idName];
 
-                    $model->findAndLoad([$data]);
-                    $model->$id = $data;
+                    $model->findAndLoad($data);
 
                     return $model;
                 }
