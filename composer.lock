@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2d7a44446e3a05cfaa8a4b6dc7542767",
+    "content-hash": "fde2c1ad33e6685c439cd27181a37932",
     "packages": [
         {
             "name": "ksoftm/mini-data",
@@ -49,16 +49,16 @@
         },
         {
             "name": "ksoftm/routing-system",
-            "version": "0.1.21",
+            "version": "0.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/RoutingSystem.git",
-                "reference": "3a95efb6a290a7a54b63db7c83c76c5755db65fd"
+                "reference": "df84cbcef15b011bb92ffeff140cae2741cf376a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/3a95efb6a290a7a54b63db7c83c76c5755db65fd",
-                "reference": "3a95efb6a290a7a54b63db7c83c76c5755db65fd",
+                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/df84cbcef15b011bb92ffeff140cae2741cf376a",
+                "reference": "df84cbcef15b011bb92ffeff140cae2741cf376a",
                 "shasum": ""
             },
             "require": {
@@ -87,9 +87,9 @@
             "description": "Routing system for PHP projects.",
             "support": {
                 "issues": "https://github.com/KsoftM/RoutingSystem/issues",
-                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.21"
+                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.22"
             },
-            "time": "2021-10-17T12:46:13+00:00"
+            "time": "2021-10-25T06:27:23+00:00"
         },
         {
             "name": "ksoftm/utility",
