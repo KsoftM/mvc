@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fde2c1ad33e6685c439cd27181a37932",
+    "content-hash": "dd68a9c89ce0d44ab2ccb1b5e96be9c6",
     "packages": [
         {
             "name": "ksoftm/mini-data",
@@ -49,20 +49,20 @@
         },
         {
             "name": "ksoftm/routing-system",
-            "version": "0.1.22",
+            "version": "0.1.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/RoutingSystem.git",
-                "reference": "df84cbcef15b011bb92ffeff140cae2741cf376a"
+                "reference": "d9d0ffb995b22b4cc71d23f684aae1662d62fcf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/df84cbcef15b011bb92ffeff140cae2741cf376a",
-                "reference": "df84cbcef15b011bb92ffeff140cae2741cf376a",
+                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/d9d0ffb995b22b4cc71d23f684aae1662d62fcf4",
+                "reference": "d9d0ffb995b22b4cc71d23f684aae1662d62fcf4",
                 "shasum": ""
             },
             "require": {
-                "ksoftm/utility": "^0.1.21",
+                "ksoftm/utility": "^0.1.23",
                 "php": "^8.0"
             },
             "type": "library",
@@ -87,22 +87,22 @@
             "description": "Routing system for PHP projects.",
             "support": {
                 "issues": "https://github.com/KsoftM/RoutingSystem/issues",
-                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.22"
+                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.23"
             },
-            "time": "2021-10-25T06:27:23+00:00"
+            "time": "2021-10-25T07:36:43+00:00"
         },
         {
             "name": "ksoftm/utility",
-            "version": "0.1.21",
+            "version": "0.1.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/Utility.git",
-                "reference": "3d6a2138283c983cb7345728f184c91e76f5f0e8"
+                "reference": "347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/3d6a2138283c983cb7345728f184c91e76f5f0e8",
-                "reference": "3d6a2138283c983cb7345728f184c91e76f5f0e8",
+                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541",
+                "reference": "347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541",
                 "shasum": ""
             },
             "require": {
@@ -127,9 +127,9 @@
             "description": "Some utility helpers for PHP.",
             "support": {
                 "issues": "https://github.com/KsoftM/Utility/issues",
-                "source": "https://github.com/KsoftM/Utility/tree/v0.1.21"
+                "source": "https://github.com/KsoftM/Utility/tree/v0.1.23"
             },
-            "time": "2021-10-17T12:44:33+00:00"
+            "time": "2021-10-25T06:44:31+00:00"
         }
     ],
     "packages-dev": [],
