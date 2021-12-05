@@ -116,7 +116,7 @@ abstract class Model
         foreach ($this->rules() as $value) {
             if ($value instanceof MegRule) {
                 // assign the fillable field with name
-                $field = $value->getField(false);
+                $field = $value->getRawField(false);
 
                 if ($field != false) {
                     $this->fillable[] = $field;
@@ -154,14 +154,19 @@ abstract class Model
     {
         $result = $this->findByPrimaryKey($data);
 
-        foreach ($result as $value) {
-            if ($value instanceof DResult) {
-                $result = $value;
-                break;
+        if ($result != false) {
+            foreach ($result as $value) {
+                if ($value instanceof DResult) {
+                    $result = $value;
+                    break;
+                }
             }
         }
 
-        if (($result instanceof DResult) === false) {
+        if (
+            $result == false ||
+            ($result instanceof DResult && $result->rowCount() == 0)
+        ) {
             $result = $this->findByUniqueKeys($data);
 
             foreach ($result as $value) {
@@ -190,7 +195,7 @@ abstract class Model
     {
         foreach ($this->primaryKeys ?: [] as $key) {
             $res = $this->find([$key => $data]);
-            if ($res instanceof DResult) {
+            if (!empty($res) && $res[0] instanceof DResult) {
                 return $res;
             }
         }
@@ -209,7 +214,8 @@ abstract class Model
     {
         foreach ($this->uniqueKeys ?: [] as $key) {
             $res = $this->find([$key => $data]);
-            if ($res instanceof DResult) {
+
+            if (!empty($res) && $res[0] instanceof DResult) {
                 return $res;
             }
         }
@@ -245,15 +251,15 @@ abstract class Model
      */
     private function find(array $data): array|false
     {
-        if (!empty($fields) && !empty($data)) {
+        if (!empty($data)) {
             $result = [];
             foreach ($data ?: [] as $key => $value) {
                 $result[] = DB::select(
                     $this->tableName(),
                     fn (Query $q) => $q
                         ->where(
-                            $this->conditionField([$key]),
-                            $value
+                            $this->conditionField([$key => $value]),
+                            [$value]
                         )
                 );
             }
@@ -270,7 +276,7 @@ abstract class Model
     private function conditionField(array $fields): string
     {
         $condition = [];
-        foreach ($fields as $key) {
+        foreach ($fields as $key => $val) {
             $condition[] = "$key = ?";
         }
 
@@ -280,7 +286,7 @@ abstract class Model
     private function conditionData(array $fields): array
     {
         $data = [];
-        foreach ($fields as $key) {
+        foreach ($fields as $key => $val) {
             $data[] = $this->args->getValue($key);
         }
 
@@ -289,38 +295,45 @@ abstract class Model
 
     public function keyCheck(): bool
     {
-        $primaryKeys = [];
-        $uniqueKeys = [];
+        $keySet = [];
 
-        array_map(function (string $key) use (&$set) {
-            $set[$key] = $this->args->getValue($key);
+        array_map(function (string $key) use (&$keySet) {
+            if ($this->args->haveKey($key)) {
+                $keySet[$key] = $this->args->getValue($key) ?? null;
+            }
         }, $this->primaryKeys);
 
-        array_map(function (string $key) use (&$set) {
-            $set[$key] = $this->args->getValue($key);
+        array_map(function (string $key) use (&$keySet) {
+            if ($this->args->haveKey($key)) {
+                $keySet[$key] = $this->args->getValue($key) ?? null;
+            }
         }, $this->uniqueKeys);
 
-        if (!empty($primaryKeys) && !empty($uniqueKeys)) {
-            if ($this->isValidKey($primaryKeys) && $this->isValidKey($uniqueKeys)) {
+        if (!empty($keySet)) {
+            if ($this->isValidKey($keySet)) {
                 return true;
             }
         }
+
         return false;
     }
 
     private function isValidKey(array $keys): bool
     {
-        foreach ($keys as $value) {
+        foreach ($keys as $key => $value) {
             $res = DB::select(
                 $this->tableName(),
                 fn (Query $q) => $q->where(
-                    $this->conditionField($value),
-                    $this->conditionData($value)
+                    $this->conditionField([$key => $value]),
+                    $this->conditionData([$key => $value])
                 )
             );
 
-
-            if ($res instanceof DResult && $res->rowCount() > 0) {
+            if ($res instanceof DResult) {
+                if ($res->rowCount() > 0) {
+                    return false;
+                }
+            } else {
                 return false;
             }
         }
@@ -409,6 +422,10 @@ abstract class Model
 
     protected function tableName(): string
     {
-        return strtolower(pathinfo($this::class, PATHINFO_FILENAME) . 's');
+        return str_replace(
+            'model',
+            '',
+            strtolower(pathinfo($this::class, PATHINFO_FILENAME) . 's')
+        );
     }
 }

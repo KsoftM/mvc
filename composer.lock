@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd68a9c89ce0d44ab2ccb1b5e96be9c6",
+    "content-hash": "b0acd0005e378529017fc4ecb105b211",
     "packages": [
         {
             "name": "ksoftm/mini-data",
-            "version": "0.1.21",
+            "version": "0.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/MiniData.git",
-                "reference": "c003ecc655e94c8fe6650832ab5badf7318c87dd"
+                "reference": "905c8bda47cf142ce8df6ec3dda304f2df280af0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/MiniData/zipball/c003ecc655e94c8fe6650832ab5badf7318c87dd",
-                "reference": "c003ecc655e94c8fe6650832ab5badf7318c87dd",
+                "url": "https://api.github.com/repos/KsoftM/MiniData/zipball/905c8bda47cf142ce8df6ec3dda304f2df280af0",
+                "reference": "905c8bda47cf142ce8df6ec3dda304f2df280af0",
                 "shasum": ""
             },
             "require": {
-                "ksoftm/utility": "^0.1.21",
+                "ksoftm/utility": "^0.1.26",
                 "php": "^8.0"
             },
             "type": "library",
@@ -43,26 +43,26 @@
             "description": "content database easily",
             "support": {
                 "issues": "https://github.com/KsoftM/MiniData/issues",
-                "source": "https://github.com/KsoftM/MiniData/tree/v0.1.21"
+                "source": "https://github.com/KsoftM/MiniData/tree/v0.1.22"
             },
-            "time": "2021-10-17T12:47:41+00:00"
+            "time": "2021-12-05T08:13:17+00:00"
         },
         {
             "name": "ksoftm/routing-system",
-            "version": "0.1.23",
+            "version": "0.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/RoutingSystem.git",
-                "reference": "d9d0ffb995b22b4cc71d23f684aae1662d62fcf4"
+                "reference": "ebaf09d19bc2ecce0667bd49cfc1e9de2744fd36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/d9d0ffb995b22b4cc71d23f684aae1662d62fcf4",
-                "reference": "d9d0ffb995b22b4cc71d23f684aae1662d62fcf4",
+                "url": "https://api.github.com/repos/KsoftM/RoutingSystem/zipball/ebaf09d19bc2ecce0667bd49cfc1e9de2744fd36",
+                "reference": "ebaf09d19bc2ecce0667bd49cfc1e9de2744fd36",
                 "shasum": ""
             },
             "require": {
-                "ksoftm/utility": "^0.1.23",
+                "ksoftm/utility": "^0.1.27",
                 "php": "^8.0"
             },
             "type": "library",
@@ -87,22 +87,22 @@
             "description": "Routing system for PHP projects.",
             "support": {
                 "issues": "https://github.com/KsoftM/RoutingSystem/issues",
-                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.23"
+                "source": "https://github.com/KsoftM/RoutingSystem/tree/v0.1.24"
             },
-            "time": "2021-10-25T07:36:43+00:00"
+            "time": "2021-12-05T07:51:00+00:00"
         },
         {
             "name": "ksoftm/utility",
-            "version": "0.1.23",
+            "version": "0.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KsoftM/Utility.git",
-                "reference": "347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541"
+                "reference": "e45ef58a154a502317dcdd29e7b6db4248419a76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541",
-                "reference": "347e4ebe9de8bc2a88fdc7bb13e2fb7807a80541",
+                "url": "https://api.github.com/repos/KsoftM/Utility/zipball/e45ef58a154a502317dcdd29e7b6db4248419a76",
+                "reference": "e45ef58a154a502317dcdd29e7b6db4248419a76",
                 "shasum": ""
             },
             "require": {
@@ -127,9 +127,9 @@
             "description": "Some utility helpers for PHP.",
             "support": {
                 "issues": "https://github.com/KsoftM/Utility/issues",
-                "source": "https://github.com/KsoftM/Utility/tree/v0.1.23"
+                "source": "https://github.com/KsoftM/Utility/tree/v0.1.27"
             },
-            "time": "2021-10-25T06:44:31+00:00"
+            "time": "2021-12-05T07:42:11+00:00"
         }
     ],
     "packages-dev": [],
